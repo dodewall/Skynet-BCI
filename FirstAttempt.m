@@ -30,8 +30,8 @@ wD = 0.05;
 nWindows = NumWins(length(suj1_train), fs, wL, wD);
 
 nfft = 1024;
-s = spectrogram(suj1_train(:,1),wL*fs,wD*fs,nfft,fs);
-fBins = (0:fs/nfft:fs/2)'; %frequencies by index
+s = spectrogram(suj1_train(:,1),wL*fs,wD*fs,nfft,fs); %rows = frequencies, columns = windows
+fBins = (0:fs/nfft:fs/2)'; %spectrogram frequencies by index
 
 avgTDVoltage = zeros(nWindows, nChannels);
 avgAmp8_12 = zeros(nWindows, nChannels);
