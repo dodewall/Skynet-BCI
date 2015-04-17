@@ -53,10 +53,9 @@ end
 % Assemble complete feature matrix
 featureMatrix = [avgTDVoltage avgAmp8_12 avgAmp18_24 avgAmp75_115...
     avgAmp125_159 avgAmp159_175];
-% Add bias feature, standardize
-% featureMatrix = [ones(length(featureMatrix), 1) featureMatrix];
-% stdMean = mean(featureMatrix(:));
-% stdStd = std(featureMatrix(:));
+% Scale training features
+[featureMatrix, scaleStd, scaleMean] = ScaleFeatures(featureMatrix);
+
 
 % Downsample dataglove matrix
 sep = 50; % 50 ms / 20Hz
