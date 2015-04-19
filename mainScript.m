@@ -1,4 +1,8 @@
 %% NOTES AND THINGS TO EDIT
+% - Haven't explicity fixed the first and last datapoints when splining
+% the downsampled predictions, unsure on this part and will ask the TAs
+% during next office hours if not before
+%
 % - Consistently getting 6199 windows instead of 6200; need to figure out
 % why. Accounted for this in ds_glove and the UpSample function, but these
 % are temporary solutions
