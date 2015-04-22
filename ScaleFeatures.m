@@ -6,7 +6,6 @@ function [scaled_features, sc_std, sc_mean] = ScaleFeatures(features, varargin)
 % Add bias feature
 sz = size(features);
 nRows = sz(1);
-features = [ones(nRows, 1) features];
 
 switch nargin  
     case 3
@@ -18,7 +17,9 @@ switch nargin
         
 end
 
-scaled_features = (features - repmat(sc_mean, nRows, 1)) ./ ...
+features = (features - repmat(sc_mean, nRows, 1)) ./ ...
     repmat(sc_std, nRows, 1);
+
+scaled_features = [ones(nRows, 1) features];
     
 end
